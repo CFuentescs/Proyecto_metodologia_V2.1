@@ -7,12 +7,12 @@ package Vista.administrador;
 
 /**
  *
- * @author carl
+ * @author carlos
  */
 public class Vista_principal_Adm extends javax.swing.JFrame {
 
     /**
-     * Creates new form Vista_principal_Adm
+     * Creates new form Administrador
      */
     public Vista_principal_Adm() {
         initComponents();
@@ -27,21 +27,206 @@ public class Vista_principal_Adm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablaTrabajador = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TablaResidente = new javax.swing.JTable();
+        Buscar = new javax.swing.JButton();
+        Actualizar = new javax.swing.JButton();
+        buscarTrabajador = new javax.swing.JButton();
+        ActualizarTra = new javax.swing.JButton();
+        ResidenteTXT = new javax.swing.JTextField();
+        trabajadorTXT = new javax.swing.JTextField();
+        Factura = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        seccion = new javax.swing.JMenuItem();
+        salir = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        bottonResidente = new javax.swing.JMenuItem();
+        bottonTutor = new javax.swing.JMenuItem();
+        BottonTrabajador = new javax.swing.JMenuItem();
+        bottonHorario = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        TablaTrabajador.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TablaTrabajador);
+
+        TablaResidente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7"
+            }
+        ));
+        jScrollPane2.setViewportView(TablaResidente);
+
+        Buscar.setText("Buscar");
+
+        Actualizar.setText("Actualizar");
+
+        buscarTrabajador.setText("Buscar");
+
+        ActualizarTra.setText("Actualizar");
+
+        ResidenteTXT.setText("Residente");
+        ResidenteTXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResidenteTXTActionPerformed(evt);
+            }
+        });
+
+        trabajadorTXT.setText("Trabajador");
+
+        Factura.setText("Factura");
+
+        jLabel1.setText("Residentes");
+
+        jLabel2.setText("Trabajador");
+
+        jMenu2.setText("usuario");
+
+        seccion.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_4, java.awt.event.InputEvent.CTRL_MASK));
+        seccion.setText("Cerrar sección");
+        jMenu2.add(seccion);
+
+        salir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F12, 0));
+        salir.setText("Salir");
+        jMenu2.add(salir);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu1.setText("Mantenedor");
+
+        bottonResidente.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        bottonResidente.setText("Residente");
+        jMenu1.add(bottonResidente);
+
+        bottonTutor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        bottonTutor.setText("Tutor ");
+        bottonTutor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottonTutorActionPerformed(evt);
+            }
+        });
+        jMenu1.add(bottonTutor);
+
+        BottonTrabajador.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        BottonTrabajador.setText("Trabajador");
+        BottonTrabajador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BottonTrabajadorActionPerformed(evt);
+            }
+        });
+        jMenu1.add(BottonTrabajador);
+
+        bottonHorario.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        bottonHorario.setText("Horario");
+        bottonHorario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bottonHorarioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(bottonHorario);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(Factura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(buscarTrabajador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ActualizarTra, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                    .addComponent(trabajadorTXT)
+                                    .addComponent(Buscar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Actualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ResidenteTXT))))
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(ResidenteTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(Buscar)
+                        .addGap(14, 14, 14)
+                        .addComponent(Actualizar))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(Factura)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel2)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(trabajadorTXT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buscarTrabajador)
+                        .addGap(18, 18, 18)
+                        .addComponent(ActualizarTra)
+                        .addGap(27, 27, 27))))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bottonTutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonTutorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bottonTutorActionPerformed
+
+    private void BottonTrabajadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BottonTrabajadorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BottonTrabajadorActionPerformed
+
+    private void ResidenteTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResidenteTXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ResidenteTXTActionPerformed
+
+    private void bottonHorarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottonHorarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bottonHorarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -69,6 +254,9 @@ public class Vista_principal_Adm extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Vista_principal_Adm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -79,5 +267,27 @@ public class Vista_principal_Adm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JButton Actualizar;
+    public static javax.swing.JButton ActualizarTra;
+    public static javax.swing.JMenuItem BottonTrabajador;
+    public static javax.swing.JButton Buscar;
+    public static javax.swing.JButton Factura;
+    public static javax.swing.JTextField ResidenteTXT;
+    public static javax.swing.JTable TablaResidente;
+    public static javax.swing.JTable TablaTrabajador;
+    public static javax.swing.JMenuItem bottonHorario;
+    public static javax.swing.JMenuItem bottonResidente;
+    public static javax.swing.JMenuItem bottonTutor;
+    public static javax.swing.JButton buscarTrabajador;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
+    public static javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    public static javax.swing.JMenuItem salir;
+    public static javax.swing.JMenuItem seccion;
+    public static javax.swing.JTextField trabajadorTXT;
     // End of variables declaration//GEN-END:variables
 }

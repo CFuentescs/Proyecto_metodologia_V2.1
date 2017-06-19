@@ -10,6 +10,7 @@ import static BaseDeDatos.Conexion.stmt;
 import Vista.Trabajador.Vista_Principal_Trab;
 import Vista.Usuario.Vista_Usuario;
 import Vista.administrador.Vista_principal_Adm;
+import control.Administrador.Control_Administrador;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -82,10 +83,9 @@ public class Usuario {
                         
                           nn.dispose();
                           Vista_principal_Adm adm= new Vista_principal_Adm();
-                          System.out.println("Administrador");
-                          //Administrador admM= new Administrador();
-                          //Control_Administrador admC= new Control_Administrador(adm,admM);
-                         // admC.AdministradorIniciar();
+                          Administrador admM= new Administrador();
+                          Control_Administrador admC= new Control_Administrador(adm,admM);
+                          admC.AdministradorIniciar();
                           
                     }else {
                         
