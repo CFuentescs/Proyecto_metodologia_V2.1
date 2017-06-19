@@ -5,10 +5,15 @@
  */
 package control.Administrador;
 
+import static BaseDeDatos.Conexion.con;
+import static BaseDeDatos.Conexion.getConnection;
+import static BaseDeDatos.Conexion.stmt;
 import Modelo.Administrador;
 import Vista.administrador.Vista_principal_Adm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -20,8 +25,12 @@ public class Control_Administrador implements ActionListener {
 
     private Vista_principal_Adm adm;
     private Administrador admM;
+    public String comando;
+    public boolean existe = false;
+    public String exp;
+    Connection con = getConnection();
 
-    public Control_Administrador(Vista_principal_Adm adm,Administrador admM) {
+    public Control_Administrador(Vista_principal_Adm adm, Administrador admM) {
         this.adm = adm;
         this.admM = admM;
         this.adm.Buscar.addActionListener(this);
@@ -37,40 +46,81 @@ public class Control_Administrador implements ActionListener {
         this.adm.bottonHorario.addActionListener(this);
 
     }
-     public void AdministradorIniciar() {
-        
+
+    public void AdministradorIniciar() {
+
         adm.setVisible(true);
         adm.setTitle("Administrador");
         adm.setLocationRelativeTo(null);
         adm.setResizable(false);
         adm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        admM.VistaResidente(adm.TablaResidente);
+        admM.VistaResidente(adm.TablaResidente, "");
+        //   admM.VistaTrabajador(adm.TablaTrabajador,"");
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-         if (adm.Buscar == ae.getSource()){
-                        
-            try{
-                
-               // admM.VistaResidente(adm.TablaResidente,adm.ResidenteTXT.getText());
-                
-            }catch (Exception ex){
-                
-                        JOptionPane.showMessageDialog(null,"no se pudo guardar");
-            }  
-        }else   if (adm.Actualizar == ae.getSource()){
-                        
-            try{
-                
-                admM.VistaResidente(adm.TablaResidente);
-                
-            }catch (Exception ex){
-                
-                        JOptionPane.showMessageDialog(null,"no se pudo Actualizar");
-            }      
-        }
-   }
-    
+        if (adm.Buscar == ae.getSource()) {
+            try {
+                if (adm.ResidenteTXT.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "El campo de rut está vacío", "Error de captura", JOptionPane.ERROR_MESSAGE);
+                } else if (adm.ResidenteTXT.getText().length() == 8) {
+                    comando = "select *from residente where rut=" + adm.ResidenteTXT.getText() + ";";
+                    stmt = con.createStatement();
+                    ResultSet rss = stmt.executeQuery(comando);
+                    while (rss.next()) {
+                        existe = true;
+                        if (existe == true) {
+                            exp = rss.getString("rut");
+                            if (adm.ResidenteTXT.getText().equals(exp)) {
+                                admM.VistaResidente(adm.TablaResidente, adm.ResidenteTXT.getText());
+                            }
+                        }
+                    }
+                    if (existe == false) {
+                        JOptionPane.showMessageDialog(null, "No existe el rut ingresado en el sistema" + adm.ResidenteTXT.getText() + "");
+                    }
+                    stmt.close();
+                    con.close();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Campo de rut NO VALIDO", "Error de captura", JOptionPane.ERROR_MESSAGE);
+                }
 
+            } catch (Exception ex) {
+
+                JOptionPane.showMessageDialog(null, "no se pudo guardar");
+            }
+        } else if (adm.Actualizar == ae.getSource()) {
+
+            try {
+
+                admM.VistaResidente(adm.TablaResidente, "");
+
+            } catch (Exception ex) {
+
+                JOptionPane.showMessageDialog(null, "no se pudo Actualizar");
+            }
+        }
+        if (adm.buscarTrabajador == ae.getSource()) {
+
+            try {
+
+                admM.VistaTrabajador(adm.TablaResidente, adm.trabajadorTXT.getText());
+
+            } catch (Exception ex) {
+
+                JOptionPane.showMessageDialog(null, "no se pudo guardar");
+            }
+        } else if (adm.ActualizarTra == ae.getSource()) {
+
+            try {
+
+                admM.VistaTrabajador(adm.TablaResidente, "");
+
+            } catch (Exception ex) {
+
+                JOptionPane.showMessageDialog(null, "no se pudo Actualizar");
+            }
+        }
+    }
 }
