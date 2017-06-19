@@ -5,10 +5,11 @@
  */
 package control.Administrador;
 
-import static BaseDeDatos.Conexion.con;
 import static BaseDeDatos.Conexion.getConnection;
 import static BaseDeDatos.Conexion.stmt;
 import Modelo.Administrador;
+import Modelo.Residente;
+import Vista.administrador.Vista_Residente_Adm;
 import Vista.administrador.Vista_principal_Adm;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -104,8 +105,29 @@ public class Control_Administrador implements ActionListener {
         if (adm.buscarTrabajador == ae.getSource()) {
 
             try {
-
-                admM.VistaTrabajador(adm.TablaResidente, adm.trabajadorTXT.getText());
+                if (adm.trabajadorTXT.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "El campo de rut está vacío", "Error de captura", JOptionPane.ERROR_MESSAGE);
+                } else if (adm.trabajadorTXT.getText().length() == 8) {
+                    comando = "select *from trabajador where rut=" + adm.trabajadorTXT.getText() + ";";
+                    stmt = con.createStatement();
+                    ResultSet rss = stmt.executeQuery(comando);
+                    while (rss.next()) {
+                        existe = true;
+                        if (existe == true) {
+                            exp = rss.getString("rut");
+                            if (adm.trabajadorTXT.getText().equals(exp)) {
+                                admM.VistaTrabajador(adm.TablaResidente, adm.trabajadorTXT.getText());
+                            }
+                        }
+                    }
+                    if (existe == false) {
+                        JOptionPane.showMessageDialog(null, "No existe el rut ingresado en el sistema" + adm.trabajadorTXT.getText() + "");
+                    }
+                    stmt.close();
+                    con.close();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Campo de rut NO VALIDO", "Error de captura", JOptionPane.ERROR_MESSAGE);
+                }
 
             } catch (Exception ex) {
 
@@ -122,5 +144,27 @@ public class Control_Administrador implements ActionListener {
                 JOptionPane.showMessageDialog(null, "no se pudo Actualizar");
             }
         }
+        if (adm.bottonResidente == ae.getSource()) {
+
+            try {
+                adm.dispose();
+                Vista_Residente_Adm m = new Vista_Residente_Adm();
+                Residente v = new Residente();
+                Control_Residente_Adm sc = new Control_Residente_Adm(m, v);
+                sc.iniciarResidente();
+
+            } catch (Exception ex) {
+
+                JOptionPane.showMessageDialog(null, "no se pudo Actualizar");
+            }
+        }else if (adm.salir == ae.getSource()) {
+
+            try {
+               admM.Salir();
+            } catch (Exception ex) {
+
+                JOptionPane.showMessageDialog(null, "no se pudo Actualizar");
+            }
+    }
     }
 }

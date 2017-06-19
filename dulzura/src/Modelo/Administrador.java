@@ -7,7 +7,6 @@ package Modelo;
 
 import static BaseDeDatos.Conexion.getConnection;
 import static BaseDeDatos.Conexion.stmt;
-import Vista.administrador.Vista_principal_Adm;
 import java.sql.Connection;
 
 import java.sql.ResultSet;
@@ -26,7 +25,7 @@ public class Administrador {
 
     public void VistaResidente(JTable tablaD, String St) {
         Connection con = getConnection();
-        DefaultTableModel modo = new DefaultTableModel();
+       DefaultTableModel modo = new DefaultTableModel();
         String Sql ;
       
         try {
@@ -70,7 +69,7 @@ public class Administrador {
 
     public void VistaTrabajador(JTable tablaD, String St) {
         Connection con = getConnection();
-        DefaultTableModel modo = new DefaultTableModel();
+       
         String Sql;
         try {
             if (St.equals("")) {
@@ -108,5 +107,8 @@ public class Administrador {
 
         }
 
+    }
+    public void Salir(){
+         System.exit(0);
     }
 }
