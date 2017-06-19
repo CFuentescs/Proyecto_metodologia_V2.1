@@ -74,25 +74,27 @@ public class Administrador {
         try {
             if (St.equals("")) {
 
-                Sql = "select * from trabajador;";
+                Sql = "select * from usuario where tipo_usuario='trabajador';";
             } else {
 
-                Sql = "select * from trabajador where rut = " + St + ";";
+                Sql = "select * from usuario where rut = " + St + "and where tipo_usuario='trabajador';";
             }
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(Sql);
-            String[] fila = new String[7];
-            String[] titulos = {"Rut", "Nombre", "Apellido_M", "Apellido_P", "Sexo", "Tiempo_R", "Observación"};
+            String[] fila = new String[10];
+            String[] titulos = {"ID_Usuario", "Usuario", "Pass", "Rut", "Nombre", "Apellido_M","Apellido_P","Celular","Tipo_Usuario"};
             modelo = new DefaultTableModel(null, titulos);
             while (rs.next()) {
 
-                fila[0] = rs.getString("rut");
-                fila[1] = rs.getString("nombre");
-                fila[2] = rs.getString("apellido_m");
-                fila[3] = rs.getString("apellido_p");
-                fila[4] = rs.getString("sexo");
-                fila[5] = rs.getString("tiempo_r");
-                fila[6] = rs.getString("observacion");
+                fila[0] = rs.getString("id_usuario");
+                fila[1] = rs.getString("usuario");
+                fila[2] = rs.getString("pass");
+                fila[3] = rs.getString("rut");
+                fila[4] = rs.getString("nombre");
+                fila[5] = rs.getString("apellido_m");
+                fila[6] = rs.getString("apellido_p");
+                fila[7] = rs.getString("celular");
+                fila[8] = rs.getString("tipo_usuario");
                 modelo.addRow(fila);
 
             }

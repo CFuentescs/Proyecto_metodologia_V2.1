@@ -42,7 +42,6 @@ public class Control_Residente_Adm implements ActionListener {
         if (sc.AgregarResidente == ae.getSource()) {
 
             try {
-
                 nn.agregarResidente(sc.RutResidente.getText(), sc.NombreResidente.getText(), sc.Apellido_MResidente.getText(), sc.ApellidoPResidente.getText(), sc.SexoResidente.getText(), sc.Tiempo_RResidente.getText(), sc.observacion.getText());
                 nn.actualizarResidente(sc.Tablaproducto);
             } catch (Exception ex) {

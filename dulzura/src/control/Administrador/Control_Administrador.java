@@ -56,7 +56,7 @@ public class Control_Administrador implements ActionListener {
         adm.setResizable(false);
         adm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         admM.VistaResidente(adm.TablaResidente, "");
-        //   admM.VistaTrabajador(adm.TablaTrabajador,"");
+        admM.VistaTrabajador(adm.TablaTrabajador,"");
     }
 
     @Override
@@ -107,8 +107,8 @@ public class Control_Administrador implements ActionListener {
             try {
                 if (adm.trabajadorTXT.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "El campo de rut está vacío", "Error de captura", JOptionPane.ERROR_MESSAGE);
-                } else if (adm.trabajadorTXT.getText().length() == 8) {
-                    comando = "select *from trabajador where rut=" + adm.trabajadorTXT.getText() + ";";
+                } else if (adm.trabajadorTXT.getText().length() == 9) {
+                    comando = "select *from usuario where rut=" + adm.trabajadorTXT.getText() + ";";
                     stmt = con.createStatement();
                     ResultSet rss = stmt.executeQuery(comando);
                     while (rss.next()) {
@@ -116,7 +116,7 @@ public class Control_Administrador implements ActionListener {
                         if (existe == true) {
                             exp = rss.getString("rut");
                             if (adm.trabajadorTXT.getText().equals(exp)) {
-                                admM.VistaTrabajador(adm.TablaResidente, adm.trabajadorTXT.getText());
+                                admM.VistaTrabajador(adm.TablaTrabajador, adm.trabajadorTXT.getText());
                             }
                         }
                     }
@@ -137,7 +137,7 @@ public class Control_Administrador implements ActionListener {
 
             try {
 
-                admM.VistaTrabajador(adm.TablaResidente, "");
+                admM.VistaTrabajador(adm.TablaTrabajador, "");
 
             } catch (Exception ex) {
 
@@ -165,6 +165,16 @@ public class Control_Administrador implements ActionListener {
 
                 JOptionPane.showMessageDialog(null, "no se pudo Actualizar");
             }
-    }
+        }else if (adm.BottonTrabajador == ae.getSource()) {
+
+            try {
+              
+                
+            } catch (Exception ex) {
+
+                JOptionPane.showMessageDialog(null, "no se pudo Actualizar");
+            }
+                    }
+    
     }
 }
