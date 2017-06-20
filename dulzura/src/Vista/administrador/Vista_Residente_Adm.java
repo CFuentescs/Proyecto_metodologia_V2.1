@@ -30,25 +30,25 @@ public class Vista_Residente_Adm extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        ddd1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        RutResidente = new javax.swing.JTextField();
+        eliminar = new javax.swing.JTextField();
+        observacion = new javax.swing.JTextField();
+        AgregarResidente = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        NombreResidente = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        EliminarResidente = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        Apellido_MResidente = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tablaproducto = new javax.swing.JTable();
-        eliminar = new javax.swing.JTextField();
-        NombreResidente = new javax.swing.JTextField();
-        Apellido_MResidente = new javax.swing.JTextField();
-        SexoResidente = new javax.swing.JTextField();
-        ApellidoPResidente = new javax.swing.JTextField();
-        RutResidente = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        AgregarResidente = new javax.swing.JButton();
-        EliminarResidente = new javax.swing.JButton();
         ddd = new javax.swing.JLabel();
+        SexoResidente = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         Tiempo_RResidente = new javax.swing.JTextField();
-        ddd1 = new javax.swing.JLabel();
-        observacion = new javax.swing.JTextField();
+        ApellidoPResidente = new javax.swing.JTextField();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         stockBotton2 = new javax.swing.JMenuItem();
@@ -62,6 +62,35 @@ public class Vista_Residente_Adm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        ddd1.setText("Observación");
+
+        jLabel5.setText("Sexo");
+
+        RutResidente.setText(" ");
+
+        eliminar.setText(" ");
+
+        observacion.setText(" ");
+
+        AgregarResidente.setText("Agregar");
+
+        jLabel1.setText("Rut");
+
+        NombreResidente.setText(" ");
+
+        jLabel2.setText("Nombre");
+
+        EliminarResidente.setText("Eliminar");
+        EliminarResidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EliminarResidenteActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Apellido Materno");
+
+        Apellido_MResidente.setText(" ");
+
         Tablaproducto.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -72,49 +101,20 @@ public class Vista_Residente_Adm extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(Tablaproducto);
 
-        eliminar.setText(" ");
-
-        NombreResidente.setText(" ");
-
-        Apellido_MResidente.setText(" ");
+        ddd.setText("Tiempo de estadia");
 
         SexoResidente.setText(" ");
 
-        ApellidoPResidente.setText(" ");
-
-        RutResidente.setText(" ");
-
-        jLabel1.setText("Rut");
-
-        jLabel2.setText("Nombre");
-
-        jLabel3.setText("Apellido Materno");
-
         jLabel4.setText("Apellido Paterno");
-
-        jLabel5.setText("Sexo");
-
-        AgregarResidente.setText("Agregar");
-
-        EliminarResidente.setText("Eliminar");
-        EliminarResidente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarResidenteActionPerformed(evt);
-            }
-        });
-
-        ddd.setText("Tiempo de estadia");
 
         Tiempo_RResidente.setText(" ");
 
-        ddd1.setText("Observación");
-
-        observacion.setText(" ");
+        ApellidoPResidente.setText(" ");
 
         jMenu3.setText("File");
 
         stockBotton2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
-        stockBotton2.setText("Stock");
+        stockBotton2.setText("volver");
         stockBotton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 stockBotton2ActionPerformed(evt);
@@ -185,7 +185,7 @@ public class Vista_Residente_Adm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 523, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +213,7 @@ public class Vista_Residente_Adm extends javax.swing.JFrame {
                     .addComponent(ddd1)
                     .addComponent(observacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(AgregarResidente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(EliminarResidente))
